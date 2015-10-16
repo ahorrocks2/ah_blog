@@ -1,17 +1,17 @@
 class TagsController < ApplicationController
-  def show
-    @tag = Tag.find(params[:id])
-  end
-
   def new
-    @tag = Tag.new
+    @post = Post.find(params[:post_id])
+    @tag = @post.tags.new
   end
 
   def create
-    @tag = Tag.create(tag_params)
+    @post = Post.find(params[:post_id])
+    @tag = @post.tags.new(tag_params)
     if @tag.save
-      redirect_to posts_path
+      flash[:notice] = "Tag successfully added!"
+      redirect_to post_path(@post)
     else
+      flash[:alert] = "Oops! Something went wrong!"
       render :new
     end
   end
@@ -30,10 +30,11 @@ class TagsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:post_id])
     @tag = Tag.find(params[:id])
     @tag.destroy
-    
-    redirect_to posts_path
+
+    redirect_to post_path(@post)
   end
 
 private

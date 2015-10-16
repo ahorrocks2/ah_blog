@@ -4,3 +4,9 @@
 <%= link_to 'Delete Tag', tag_path(@tag), :method => 'delete' %>
 <hr>
 <h4>Posts</h4>
+
+<ul style="list-style:none;">
+  <% @tag.posts.each do |post| %>
+    <li><%= post.title %></li>
+  <% end %>
+</ul>

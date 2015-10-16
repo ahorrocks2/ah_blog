@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   validates :title, :content, :presence => true
-  has_and_belongs_to_many :tags
+  has_many :tags
 
   before_save(:title_case)
 
@@ -13,4 +13,6 @@ class Post < ActiveRecord::Base
       end
       self.title = words.join(' ')
     end
+
+
 end

@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc)
-    @tags = Tag.all
   end
 
   def show
@@ -13,10 +12,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.new(post_params)
     if @post.save
+      flash[:notice] = "Post successfully added!"
       redirect_to posts_path
     else
+      flash[:alert] = "Oops! Something went wrong!"
       render :new
     end
   end
@@ -40,8 +41,6 @@ class PostsController < ApplicationController
 
     redirect_to posts_path
   end
-
-
 
 private
   def post_params
