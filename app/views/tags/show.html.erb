@@ -1,5 +1,6 @@
 <h2><%= @tag.description %></h2>
 <%= link_to 'Edit', edit_tag_path(@tag) %>
 <%= link_to 'Home', posts_path %>
+<%= link_to 'Delete Tag', tag_path(@tag), :method => 'delete' %>
 <hr>
 <h4>Posts</h4>
