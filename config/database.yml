@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: ah_blog_development
+
+test:
+  <<: *default
+  database: ah_blog_test
+
+production:
+  <<: *default
+  database: ah_blog_production
+  username: ah_blog
+  password: <%= ENV['AH_BLOG_DATABASE_PASSWORD'] %>
