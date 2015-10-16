@@ -8,3 +8,14 @@
 
 <hr>
 <%= link_to "New Post", new_post_path %>
+
+<hr>
+
+<ul style="list-style:none;">
+  <% @tags.each do |tag| %>
+    <li><%= link_to "#{tag.description}", tag_path(tag) %></li>
+  <% end %>
+</ul>
+
+<hr>
+<%= link_to 'New Tag', new_tag_path %>
