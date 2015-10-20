@@ -8,10 +8,12 @@ class PostsController < ApplicationController
   end
 
   def new
+    @tags = Tag.all
     @post = Post.new
   end
 
   def create
+    @tags = Tag.all
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "Post successfully added!"
@@ -44,6 +46,6 @@ class PostsController < ApplicationController
 
 private
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :tag_ids => [])
   end
 end

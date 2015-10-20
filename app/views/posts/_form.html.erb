@@ -1,17 +1,13 @@
 <%= render "layouts/errors", :object => @post %>
 
-<div class ="container">
-  <%= form_for @post, :html => {:class => "form-horizontal center"} do |f| %>
-    <div class="form-group">
-      <%= f.label :title, "Title", class: "control-label" %>
-        <%= f.text_field :title, class: "form-control" %>
-      </div>
+<%= simple_form_for(@post, html: { class: 'form-vertical'}) do |f| %>
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title, class: 'form-control' %>
+    <%= f.label :content, "Content" %>
+    <%= f.text_area :content, class: 'form-control' %>
 
-    <div class="form-group">
-      <%= f.label :content, "Content", class: "control-label" %>
-        <%= f.text_field :content, class: "form-control" %>
-    </div>
+    <%= f.association :tags, :as => :check_boxes %>
+    <p><%= link_to 'Create a New Tag', new_tag_path %></p>
 
-    <%= f.submit "Submit", class: "btn btn-default" %>
-  <% end %>
-</div>
+  <%= f.button :submit, class: 'form-control' %>
+<% end %>

@@ -1,4 +1,4 @@
 class Tag < ActiveRecord::Base
   validates :description, :presence => true
-  belongs_to :post
+  has_and_belongs_to_many :posts
 end

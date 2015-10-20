@@ -10,11 +10,3 @@
 <%= link_to "New Post", new_post_path %>
 
 <hr>
-
-<ul style="list-style:none;">
-  <% @posts.each do |post| %>
-    <% post.tags.each do |tag| %>
-      <li><%= tag.description %></li>
-    <% end %>
-  <% end %>
-</ul>

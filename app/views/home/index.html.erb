@@ -1,0 +1,32 @@
+<h2>Title of Blog/Jumbotron Goes Here</h2>
+
+<div class="row">
+  <div class="col-md-8">
+    <% if @posts.any? %>
+      <ul style="list-style:none;">
+        <% @posts.each do |post| %>
+          <li><%= link_to "#{post.title}", post_path(post) %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No posts yet.</p>
+    <% end %>
+
+    <hr>
+    <%= link_to "New Post", new_post_path %>
+  </div>
+
+  <div class="col-md-4">
+    <% if @tags.any? %>
+      <ul style="list-style:none;">
+        <% @tags.each do |tag| %>
+          <li><%= link_to "#{tag.description}", tag_path(tag) %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No tags yet.</p>
+    <% end %>
+
+    <hr>
+    <%= link_to "New Tag", new_tag_path %>
+  </div>

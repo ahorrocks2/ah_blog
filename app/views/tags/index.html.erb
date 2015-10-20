@@ -1,0 +1,12 @@
+<h2>Tag Cloud</h2>
+
+<ul style="list-style:none;">
+  <% @tags.each do |tag| %>
+    <li><%= link_to "#{tag.description}", tag_path(tag) %></li>
+  <% end %>
+</ul>
+
+<hr>
+<%= link_to "New Tag", new_tag_path %>
+<%= link_to 'Home', '/' %>
+<hr>
