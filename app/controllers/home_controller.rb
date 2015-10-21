@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.order(created_at: :desc).limit(3)
     @tags = Tag.all.order(description: :asc)
   end
 end

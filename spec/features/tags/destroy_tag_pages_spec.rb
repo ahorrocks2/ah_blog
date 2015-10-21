@@ -7,7 +7,7 @@ describe 'the process to destroy a tag' do
     click_link 'Add a Tag'
     fill_in 'Description', :with => 'TestTest'
     click_on 'Submit'
-    click_link '[X]'
+    click_on ''
     expect(page).to_not have_content('TestTest')
   end
 

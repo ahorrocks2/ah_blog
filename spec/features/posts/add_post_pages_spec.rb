@@ -6,7 +6,7 @@ describe 'the add a post process' do
     click_link "New Post"
     fill_in "Title", :with => "Test Post"
     fill_in "Content", :with => "So much content."
-    click_on 'Submit'
+    click_on 'Create Post'
     expect(page).to have_content 'Post'
   end
 
@@ -14,7 +14,7 @@ describe 'the add a post process' do
     visit new_post_path
     fill_in 'Title', :with => ''
     fill_in 'Content', :with => ''
-    click_on 'Submit'
+    click_on 'Create Post'
     expect(page).to have_content 'errors'
   end
 

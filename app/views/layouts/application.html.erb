@@ -7,13 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <%= flash[:alert] %>
-    <%= flash[:notice] %>
 
   <div class="container">
-
+    <div class="jumbotron">
+      <h1>Alyssa et Cetera</h1>
+      <p>The blog and portfolio of a classicist turned coder.</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Portfolio</a></p>
+    </div>
     <%= yield %>
   </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+  <div class='navbar navbar-default navbar-fixed-bottom'>
+    <%= yield(:navbar) %>
+    <a class="navbar-brand" href="/">Home</a>
+      <ul class="nav navbar-nav">
+        <li><a href="/posts">View All Posts</a></li>
+      <ul>
+  </div>
 </body>
 </html>

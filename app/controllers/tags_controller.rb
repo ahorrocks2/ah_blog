@@ -14,10 +14,8 @@ class TagsController < ApplicationController
   def create
     @tag = Tag.new(tag_params)
     if @tag.save
-      flash[:notice] = "Tag successfully added!"
       redirect_to '/'
     else
-      flash[:alert] = "Oops! Something went wrong!"
       render :new
     end
   end

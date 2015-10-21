@@ -6,7 +6,7 @@ describe 'the edit a post process' do
     visit edit_post_path(post)
     fill_in 'Title', :with => 'Testing Testing'
     fill_in 'Content', :with => 'I am testing fa la la la la.'
-    click_on 'Submit'
+    click_on 'Update Post'
     expect(page).to have_content 'Testing Testing'
   end
 
@@ -15,7 +15,7 @@ describe 'the edit a post process' do
     visit edit_post_path(post)
     fill_in 'Title', :with => ''
     fill_in 'Content', :with => ''
-    click_on 'Submit'
+    click_on 'Update Post'
     expect(page).to have_content 'errors'
   end
 

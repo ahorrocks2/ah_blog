@@ -1,8 +1,11 @@
-<h2>Title of Blog/Jumbotron Goes Here</h2>
-
-
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-3">
+    <h4>About the Author</h4>
+    <p style="text-align: right;">Hi! My name is Alyssa and I am a native North Carolinian who currently resides in Portland. I earned a B.A. in Classical Studies with a concentration on Ancient Greek and Latin from the University of North Carolina at Asheville in the beautiful Blue Ridge Mountains. Currently, I am attending Epicodus -- a four month coding bootcamp that focuses on pair programming. This blog is a mashup of lingustics and web development with a general shower-thoughts vibe. Other things that may come to light: my love for yoga and trail running, a strange obsession with knitting.</p>
+
+    <hr>
+
+    <h4>Tags for Days</h4>
     <% if @tags.any? %>
       <ul style="list-style:none;">
         <% @tags.each do |tag| %>
@@ -14,11 +17,12 @@
     <% end %>
 
     <hr>
-    <%= link_to "New Tag", new_tag_path %>
+    <%= link_to "New Tag", new_tag_path, class: 'btn btn-small btn-default' %>
   </div>
 
-  <div class="col-md-10">
+  <div class="col-md-9">
     <% if @posts.any? %>
+    <h3>Recent Posts</h3>
       <ul style="list-style:none;">
         <% @posts.each do |post| %>
           <li><%= link_to "#{post.title}", post_path(post) %></li>
@@ -29,5 +33,5 @@
     <% end %>
 
     <hr>
-    <%= link_to "New Post", new_post_path %>
+    <%= link_to "New Post", new_post_path, class: 'btn btn-small btn-default' %>
   </div>
