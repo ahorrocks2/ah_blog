@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem 'bcrypt'
 
 group :development do
   gem 'byebug'
