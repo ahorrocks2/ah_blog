@@ -15,6 +15,10 @@
   <ul style="list-style:none;">
     <li><h4><%= comment.name %></h3></li>
     <li><%= comment.content %>
+    <% if current_user %>
+      <%= link_to 'Edit', edit_post_comment_path(@post, comment.id), class: 'btn btn-small btn-default' %>
+    <% end %>
+    <li></li>
   </ul>
   <% end %>
 <% else %>
