@@ -10,6 +10,22 @@
 <% end %>
 
 <hr>
+<% if @post.comments.any? %>
+  <% @post.comments.each do |comment| %>
+  <ul style="list-style:none;">
+    <li><h4><%= comment.name %></h3></li>
+    <li><%= comment.content %>
+  </ul>
+  <% end %>
+<% else %>
+  <h3>No comments yet. Sign up or log in to leave one.</h3>
+<% end %>
+
+<% if current_user %>
+  <%= link_to 'Leave a Comment', new_post_comment_path(@post), class: 'btn btn-small btn-success'%>
+<% end %>
+
+<hr>
 <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-small btn-default' %>
 <%= link_to 'Delete Post', post_path(@post), :method => 'delete', class: 'btn btn-small btn-danger' %>
 <%= link_to 'Add a Tag', new_post_tag_path(@post), class: 'btn btn-small btn-info' %>

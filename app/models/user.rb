@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :comments
   attr_accessor :password
   validates_confirmation_of :password
-  validates_uniqueness_of :email
+  validates_presence_of :email
   before_save :encrypt_password
 
   def encrypt_password

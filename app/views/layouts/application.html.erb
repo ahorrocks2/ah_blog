@@ -27,7 +27,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/posts">View All Posts</a></li>
         <% if current_user %>
-          <li><a href="/log-out">Log Out</a></li>
+          <li><a href="/log-out">Log Out <%= current_user.email %></a></li>
         <% else %>
           <li><a href="/log-in">Log In</a></li>
           <li><a href="/users/new">Sign Up</a></li>
